@@ -1,4 +1,4 @@
-import "./GeneralInformation.css"
+import "../styles/GeneralInformation.css"
 import { useState } from 'react'
 
 function Items({ info, handleInput }) {

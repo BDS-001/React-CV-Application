@@ -1,4 +1,4 @@
-import './App.css'
+import '../styles/App.css'
 import GeneralInformation from './GeneralInformation'
 import Experiences from './Experience'
 import EducationAchievements from './Education'
