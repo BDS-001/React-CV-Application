@@ -34,7 +34,7 @@ function GenerateEducation({ education, handleRemoveEducation, setState}) {
                     <label>
                         Start Date
                         <input
-                            type="text"
+                            type="date"
                             value={entry.startDate}
                             onChange={(e) => HandleInputChange(entry.id, 'startDate', e.target.value, setState)}
                         />
@@ -42,7 +42,7 @@ function GenerateEducation({ education, handleRemoveEducation, setState}) {
                     <label>
                         End Date
                         <input
-                            type="text"
+                            type="date"
                             value={entry.endDate}
                             onChange={(e) => HandleInputChange(entry.id, 'endDate', e.target.value, setState)}
                         />
