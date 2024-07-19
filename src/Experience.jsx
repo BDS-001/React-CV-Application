@@ -95,9 +95,11 @@ export default function Experiences() {
       };
 
     const handleInputChange = (id, field, val) => {
-        setExperiences((entry) => {
-            entry.id === id ? {...entry, [field]:val} : entry
-        })
+        setExperiences((prevExperiences) =>
+            prevExperiences.map((experience) =>
+              experience.id === id ? { ...experience, [field]: val } : experience
+            )
+          );
     }
 
     return (
