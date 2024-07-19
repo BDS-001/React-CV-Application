@@ -5,7 +5,7 @@ function GenerateExperiences({experiences, handleInputChange, handleRemoveExperi
     return (
         <>
             {experiences.map((experience) => (
-                <div key={experience.id} className="formItem">
+                <div key={experience.id} className="experience-entry">
                 <label htmlFor={`jobTitle-${experience.id}`}>Job Title:</label>
                 <input
                     type="text"

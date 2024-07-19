@@ -1,6 +1,7 @@
 import './App.css'
 import GeneralInformation from './GeneralInformation'
 import Experiences from './Experience'
+import EducationAchievements from './Education'
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <form action="get" method="get">
         <GeneralInformation />
         <Experiences />
+        <EducationAchievements />
       </form>
     </>
   )
