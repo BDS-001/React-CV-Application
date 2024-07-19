@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import { v4 as uuid } from 'uuid';
-import { HandleInputChange } from './Handlers';
+import { HandleInputChange, HandleFadeOut } from './Handlers';
 import '../styles/Experience.css'
 
 function GenerateExperiences({experiences, handleRemoveExperience, setState}) {
     return (
         <>
             {experiences.map((experience) => (
-                <div key={experience.id} className="experience-entry">
+                <div key={experience.id} id={`experience-${experience.id}`} className="experience-entry">
+                    <button className='remove-button' onClick={() => HandleFadeOut(experience.id, 'experience', handleRemoveExperience)} type="button"> &times; </button>
+                    <div className="experience-entry-info">
                     <div className="form-element">
                         <label htmlFor={`jobTitle-${experience.id}`}>Job Title:</label><br />
                         <input
@@ -84,9 +86,7 @@ function GenerateExperiences({experiences, handleRemoveExperience, setState}) {
                             }
                         ></textarea>
                     </div>
-                    <button onClick={() => handleRemoveExperience(experience.id)} type="button">
-                        Remove Experience
-                    </button>
+                    </div>
                 </div>
             ))}
 

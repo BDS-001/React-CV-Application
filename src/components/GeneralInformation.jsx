@@ -35,7 +35,9 @@ export default function GeneralInformation() {
     return (
         <fieldset className="general-info">
             <legend>General Information</legend>
-            <Items info={info} handleInput={handleInput} />
+            <div className="general-info-container">
+                <Items info={info} handleInput={handleInput} />
+            </div>
         </fieldset>
     )
 }

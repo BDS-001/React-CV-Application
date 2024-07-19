@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
-import { HandleInputChange } from './Handlers';
+import { HandleInputChange, HandleFadeOut } from './Handlers';
 
 function GenerateEducation({ education, handleRemoveEducation, setState}) {
     return (
         <>
             {education.map((entry) => (
-                <div key={entry.id} className="education-entry">
+                <div key={entry.id} id={`education-${entry.id}`} className="education-entry">
+                    <button className='remove-button' onClick={() => HandleFadeOut(entry.id, 'education', handleRemoveEducation)} type='button'> &times; </button>
+                    <div className="education-entry-info">
                     <div className="form-item">
                         <label htmlFor={`cert-${entry.id}`}>Certificate</label><br />
                         <input
@@ -66,8 +68,7 @@ function GenerateEducation({ education, handleRemoveEducation, setState}) {
                             onChange={(e) => HandleInputChange(entry.id, 'endDate', e.target.value, setState)}
                         />
                     </div>
-                    
-                    <button onClick={() => handleRemoveEducation(entry.id)}>Remove Education</button>
+                    </div>
                 </div>
             ))}
 

@@ -12,8 +12,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --main-purple: #1F2041;
-  --main-light-purple: #4B3F72;
+  --main-primary: #202020;
+  --main-secondary: #393939;
 }
 
 a {
@@ -31,7 +31,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: var(--main-purple);
+  background-color: var(--main-primary);
 }
 
 h1 {
@@ -46,7 +46,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #ac6b26;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -69,4 +69,12 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+fieldset {
+  border: 2px solid var(--main-secondary);
+}
+
+legend {
+  font-weight: bold;
 }
