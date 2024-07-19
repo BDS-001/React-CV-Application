@@ -76,7 +76,7 @@ function GenerateExperiences({experiences, handleInputChange}) {
     )
 }
 
-export default function Experience() {
+export default function Experiences() {
     const [experiences, setExperiences] = useState([])
 
     const handleAddExperience = () => {
@@ -103,7 +103,7 @@ export default function Experience() {
     return (
         <fieldset>
             <legend>Experience</legend>
-            <button onClick={handleAddExperience}>Add Experience</button>
+            <button onClick={handleAddExperience} type='button'>Add Experience</button>
             <GenerateExperiences experiences={experiences} handleInputChange={handleInputChange} />
         </fieldset>
     )

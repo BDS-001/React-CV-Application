@@ -1,20 +1,14 @@
-import { useState } from 'react'
 import './App.css'
 import GeneralInformation from './GeneralInformation'
+import Experiences from './Experience'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <form action="post" method="post">
+      <form action="get" method="get">
         <GeneralInformation />
+        <Experiences />
       </form>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
     </>
   )
 }
