@@ -7,10 +7,9 @@ function App() {
 
   return (
     <>
-      <form action="post">
+      <form action="post" method="post">
         <GeneralInformation />
       </form>
-
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
