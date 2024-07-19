@@ -5,7 +5,7 @@ function Items({ info, handleInput }) {
     return (
         <>
             {info.map((entry) => (
-                <div key={entry.id} className="formItem">
+                <div key={entry.id} className="form-item">
                     <label htmlFor={entry.id}>{entry.text}:</label>
                     <br />
                     <input type={entry.type} id={entry.id} name={entry.id} value={entry.val} onChange={(e) => {handleInput(entry.id, e.target.value)}} />
@@ -33,7 +33,7 @@ export default function GeneralInformation() {
     }
 
     return (
-        <fieldset>
+        <fieldset className="general-info">
             <legend>General Information</legend>
             <Items info={info} handleInput={handleInput} />
         </fieldset>

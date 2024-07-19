@@ -8,3 +8,9 @@
 .card {
   padding: 2em;
 }
+
+.education-entry, .experience-entry, .general-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
