@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
+import { HandleInputChange } from './Handlers';
 
-function GenerateEducation({ education, handleInputChange, handleRemoveEducation }) {
+function GenerateEducation({ education, handleRemoveEducation, setState}) {
     return (
         <>
             {education.map((entry) => (
@@ -11,7 +12,7 @@ function GenerateEducation({ education, handleInputChange, handleRemoveEducation
                         <input
                             type="text"
                             value={entry.cert}
-                            onChange={(e) => handleInputChange(entry.id, 'cert', e.target.value)}
+                            onChange={(e) => HandleInputChange(entry.id, 'cert', e.target.value, setState)}
                         />
                     </label>
                     <label>
@@ -19,7 +20,7 @@ function GenerateEducation({ education, handleInputChange, handleRemoveEducation
                         <input
                             type="text"
                             value={entry.institution}
-                            onChange={(e) => handleInputChange(entry.id, 'institution', e.target.value)}
+                            onChange={(e) => HandleInputChange(entry.id, 'institution', e.target.value, setState)}
                         />
                     </label>
                     <label>
@@ -27,7 +28,7 @@ function GenerateEducation({ education, handleInputChange, handleRemoveEducation
                         <input
                             type="text"
                             value={entry.location}
-                            onChange={(e) => handleInputChange(entry.id, 'location', e.target.value)}
+                            onChange={(e) => HandleInputChange(entry.id, 'location', e.target.value, setState)}
                         />
                     </label>
                     <label>
@@ -35,7 +36,7 @@ function GenerateEducation({ education, handleInputChange, handleRemoveEducation
                         <input
                             type="text"
                             value={entry.startDate}
-                            onChange={(e) => handleInputChange(entry.id, 'startDate', e.target.value)}
+                            onChange={(e) => HandleInputChange(entry.id, 'startDate', e.target.value, setState)}
                         />
                     </label>
                     <label>
@@ -43,7 +44,7 @@ function GenerateEducation({ education, handleInputChange, handleRemoveEducation
                         <input
                             type="text"
                             value={entry.endDate}
-                            onChange={(e) => handleInputChange(entry.id, 'endDate', e.target.value)}
+                            onChange={(e) => HandleInputChange(entry.id, 'endDate', e.target.value, setState)}
                         />
                     </label>
                     <label>
@@ -51,7 +52,7 @@ function GenerateEducation({ education, handleInputChange, handleRemoveEducation
                         <input
                             type="text"
                             value={entry.field}
-                            onChange={(e) => handleInputChange(entry.id, 'field', e.target.value)}
+                            onChange={(e) => HandleInputChange(entry.id, 'field', e.target.value, setState)}
                         />
                     </label>
                     <button onClick={() => handleRemoveEducation(entry.id)}>Remove</button>
@@ -64,14 +65,6 @@ function GenerateEducation({ education, handleInputChange, handleRemoveEducation
 
 export default function EducationAchievements() {
     const [education, setEducation] = useState([])
-
-    const handleInputChange = (id, field, val) => {
-        setEducation((prevEducation) =>
-            prevEducation.map((entry) =>
-                entry.id === id ? { ...entry, [field]: val } : entry
-            )
-          );
-    }
 
     const handleAddEducation = () => {
         setEducation([
@@ -99,7 +92,7 @@ export default function EducationAchievements() {
         <fieldset>
         <legend>Education</legend>
         <button onClick={handleAddEducation} type='button'>Add Education</button>
-        <GenerateEducation education={education} handleInputChange={handleInputChange} handleRemoveEducation={handleRemoveEducation} />
+        <GenerateEducation education={education} handleRemoveEducation={handleRemoveEducation} setState={setEducation} />
     </fieldset>
     )
 }

@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { v4 as uuid } from 'uuid';
+import { HandleInputChange } from './Handlers';
 
-function GenerateExperiences({experiences, handleInputChange, handleRemoveExperience}) {
+function GenerateExperiences({experiences, handleRemoveExperience, setState}) {
     return (
         <>
             {experiences.map((experience) => (
@@ -13,7 +14,7 @@ function GenerateExperiences({experiences, handleInputChange, handleRemoveExperi
                     name={`jobTitle-${experience.id}`}
                     value={experience.jobTitle}
                     onChange={(e) =>
-                    handleInputChange(experience.id, 'jobTitle', e.target.value)
+                    HandleInputChange(experience.id, 'jobTitle', e.target.value, setState)
                     }
                 />
         
@@ -24,7 +25,7 @@ function GenerateExperiences({experiences, handleInputChange, handleRemoveExperi
                     name={`company-${experience.id}`}
                     value={experience.company}
                     onChange={(e) =>
-                    handleInputChange(experience.id, 'company', e.target.value)
+                    HandleInputChange(experience.id, 'company', e.target.value, setState)
                     }
                 />
         
@@ -35,7 +36,7 @@ function GenerateExperiences({experiences, handleInputChange, handleRemoveExperi
                     name={`startDate-${experience.id}`}
                     value={experience.startDate}
                     onChange={(e) =>
-                    handleInputChange(experience.id, 'startDate', e.target.value)
+                    HandleInputChange(experience.id, 'startDate', e.target.value, setState)
                     }
                 />
         
@@ -46,7 +47,7 @@ function GenerateExperiences({experiences, handleInputChange, handleRemoveExperi
                     name={`endDate-${experience.id}`}
                     value={experience.endDate}
                     onChange={(e) =>
-                    handleInputChange(experience.id, 'endDate', e.target.value)
+                    HandleInputChange(experience.id, 'endDate', e.target.value, setState)
                     }
                 />
         
@@ -57,7 +58,7 @@ function GenerateExperiences({experiences, handleInputChange, handleRemoveExperi
                     name={`location-${experience.id}`}
                     value={experience.location}
                     onChange={(e) =>
-                    handleInputChange(experience.id, 'location', e.target.value)
+                    HandleInputChange(experience.id, 'location', e.target.value, setState)
                     }
                 />
         
@@ -67,7 +68,7 @@ function GenerateExperiences({experiences, handleInputChange, handleRemoveExperi
                     name={`jobDetails-${experience.id}`}
                     value={experience.jobDetails}
                     onChange={(e) =>
-                    handleInputChange(experience.id, 'jobDetails', e.target.value)
+                    HandleInputChange(experience.id, 'jobDetails', e.target.value, setState)
                     }
                 ></textarea>
                  <button onClick={() => handleRemoveExperience(experience.id)} type="button">
@@ -97,14 +98,6 @@ export default function Experiences() {
         ]);
       };
 
-    const handleInputChange = (id, field, val) => {
-        setExperiences((prevExperiences) =>
-            prevExperiences.map((experience) =>
-              experience.id === id ? { ...experience, [field]: val } : experience
-            )
-          );
-    }
-
     const handleRemoveExperience = (id) => {
         setExperiences((prevExperiences) =>
           prevExperiences.filter((experience) => experience.id !== id)
@@ -115,7 +108,7 @@ export default function Experiences() {
         <fieldset>
             <legend>Experience</legend>
             <button onClick={handleAddExperience} type='button'>Add Experience</button>
-            <GenerateExperiences experiences={experiences} handleInputChange={handleInputChange} handleRemoveExperience={handleRemoveExperience} />
+            <GenerateExperiences experiences={experiences} handleRemoveExperience={handleRemoveExperience} setState={setExperiences} />
         </fieldset>
     )
 }
