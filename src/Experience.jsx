@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { v4 as uuid } from 'uuid';
 
-function GenerateExperiences({experiences, handleInputChange}) {
+function GenerateExperiences({experiences, handleInputChange, handleRemoveExperience}) {
     return (
         <>
             {experiences.map((experience) => (
@@ -70,6 +70,9 @@ function GenerateExperiences({experiences, handleInputChange}) {
                     handleInputChange(experience.id, 'jobDetails', e.target.value)
                     }
                 ></textarea>
+                 <button onClick={() => handleRemoveExperience(experience.id)} type="button">
+                    Remove Experience
+                </button>
                 </div>
             ))}
         </>
@@ -102,11 +105,17 @@ export default function Experiences() {
           );
     }
 
+    const handleRemoveExperience = (id) => {
+        setExperiences((prevExperiences) =>
+          prevExperiences.filter((experience) => experience.id !== id)
+        );
+      };
+
     return (
         <fieldset>
             <legend>Experience</legend>
             <button onClick={handleAddExperience} type='button'>Add Experience</button>
-            <GenerateExperiences experiences={experiences} handleInputChange={handleInputChange} />
+            <GenerateExperiences experiences={experiences} handleInputChange={handleInputChange} handleRemoveExperience={handleRemoveExperience} />
         </fieldset>
     )
 }
