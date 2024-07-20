@@ -11,6 +11,7 @@
   margin: 10px;
   background-color: var(--main-secondary);
   position: relative;
+
 }
 
 .education-entry, .experience-entry {
@@ -55,13 +56,16 @@
   from {
       opacity: 1;
       transform: scale(1);
+      max-height: 200px;
   }
   to {
       opacity: 0;
       transform: scale(0.9);
+      max-height: 0px;
   }
 }
 
 .fade-out {
-  animation: fadeOut 0.5s forwards;
+  animation: fadeOut 0.2s linear forwards;
+  overflow: hidden;
 }
