@@ -8,7 +8,7 @@ function Items({ info, handleInput }) {
                 <div key={entry.id} className="form-item">
                     <label htmlFor={entry.id}>{entry.text}:</label>
                     <br />
-                    <input type={entry.type} id={entry.id} name={entry.id} value={entry.val} onChange={(e) => {handleInput(entry.id, e.target.value)}} />
+                    {entry.type !== 'text area' ? <input type={entry.type} id={entry.id} name={entry.id} value={entry.val} onChange={(e) => {handleInput(entry.id, e.target.value)}}/> : <textarea id={entry.id} name={entry.id} value={entry.val} onChange={(e) => {handleInput(entry.id, e.target.value)}}/>}
                 </div>
             ))}
         </>
@@ -21,6 +21,7 @@ export default function GeneralInformation() {
         {text: 'Email', type: 'text', id: 'email', val:''},
         {text: 'Phone Number', type: 'text', id: 'phone', val:''},
         {text: 'Address', type: 'text', id: 'address', val:''},
+        {text: 'About Me', type: 'text area', id: 'about-me', val:''}
     ]
     const [info, setInfo] = useState(data)
 
