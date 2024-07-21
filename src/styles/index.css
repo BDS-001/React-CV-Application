@@ -46,12 +46,12 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #ac6b26;
+  background-color: #725956;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #ac6b26;
 }
 button:focus,
 button:focus-visible {
@@ -73,6 +73,7 @@ button:focus-visible {
 
 fieldset {
   border: 2px solid var(--main-secondary);
+  padding: 10px;
 }
 
 legend {

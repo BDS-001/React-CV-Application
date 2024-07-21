@@ -69,3 +69,8 @@
   animation: fadeOut 0.2s linear forwards;
   overflow: hidden;
 }
+
+.cv-submit {
+  background-color: #ac6b26;
+  margin: 20px 0px;
+}
