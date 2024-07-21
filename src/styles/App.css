@@ -70,7 +70,17 @@
   overflow: hidden;
 }
 
-.cv-submit {
+.cv-submit, .cv-edit {
   background-color: #ac6b26;
   margin: 20px 0px;
+}
+
+.cv-container {
+  display: none;
+}
+
+.cv-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
