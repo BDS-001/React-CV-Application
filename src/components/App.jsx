@@ -10,6 +10,12 @@ function submitForm(e) {
   document.querySelector('.cv-container').style.display = 'block'
 }
 
+function editForm(e) {
+  e.preventDefault();
+  document.querySelector('.cv-data-form').style.display = 'block'
+  document.querySelector('.cv-container').style.display = 'none'
+}
+
 
 function App() {
   return (
@@ -19,10 +25,10 @@ function App() {
         <GeneralInformation />
         <Experiences />
         <EducationAchievements />
-        <button className='cv-submit' type="submit" onClick={submitForm}>Submit</button>
+        <button className='cv-submit' onClick={submitForm}>Submit</button>
       </form>
       <div className="cv-container">
-            <header className="cv-header"><h1>Generated CV</h1> <button className='cv-edit'>Edit</button></header>
+            <header className="cv-header"><h1>Generated CV</h1> <button className='cv-edit' onClick={editForm}>Edit</button></header>
             <CV />
         </div>
     </>
