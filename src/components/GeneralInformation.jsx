@@ -23,10 +23,10 @@ export default function GeneralInformation() {
         {text: 'Address', type: 'text', id: 'address', val:''},
         {text: 'About Me', type: 'text area', id: 'about-me', val:''}
     ]
-    const [info, setInfo] = useState(data)
+    const [genInfo, setGenInfo] = useState(data)
 
     const handleInput = (id, val) => {
-        setInfo((prevInfo) => 
+        setGenInfo((prevInfo) => 
             prevInfo.map((entry) => 
                 entry.id === id ? {...entry, val: val} : entry
             )
@@ -37,7 +37,7 @@ export default function GeneralInformation() {
         <fieldset className="general-info">
             <legend>General Information</legend>
             <div className="general-info-container">
-                <Items info={info} handleInput={handleInput} />
+                <Items info={genInfo} handleInput={handleInput} />
             </div>
         </fieldset>
     )

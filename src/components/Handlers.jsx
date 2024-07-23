@@ -11,7 +11,7 @@ export function HandleFadeOut(id, keyword, handleRemove) {
     if (element) {
         element.classList.add('fade-out');
         element.addEventListener('animationend', () => {
-            element.style.display = 'none'; // Set display to none to remove it from layout
+            element.style.display = 'none';
             handleRemove(id);
         }, { once: true }); // Ensure the event listener is removed after being called once
     }
