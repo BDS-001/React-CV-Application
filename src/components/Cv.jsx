@@ -1,6 +1,6 @@
 import '../styles/Cv.css'
 
-function CV() {
+export default function CV() {
     return (
       <>
         <div className="cv">
@@ -9,5 +9,3 @@ function CV() {
       </>
     )
   }
-  
-  export default CV
