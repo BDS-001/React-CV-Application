@@ -1,5 +1,4 @@
 import "../styles/GeneralInformation.css"
-import { useState } from 'react'
 
 function Items({ info, handleInput }) {
     return (
@@ -15,16 +14,7 @@ function Items({ info, handleInput }) {
     )
 }
 
-export default function GeneralInformation() {
-    const data = [
-        {text: 'Name', type: 'text', id: 'name', val:''},
-        {text: 'Email', type: 'text', id: 'email', val:''},
-        {text: 'Phone Number', type: 'text', id: 'phone', val:''},
-        {text: 'Address', type: 'text', id: 'address', val:''},
-        {text: 'About Me', type: 'text area', id: 'about-me', val:''}
-    ]
-    const [genInfo, setGenInfo] = useState(data)
-
+export default function GeneralInformation({genInfo, setGenInfo}) {
     const handleInput = (id, val) => {
         setGenInfo((prevInfo) => 
             prevInfo.map((entry) => 

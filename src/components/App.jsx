@@ -1,4 +1,5 @@
 import '../styles/App.css'
+import { useState } from 'react';
 import GeneralInformation from './GeneralInformation'
 import Experiences from './Experience'
 import EducationAchievements from './Education'
@@ -18,13 +19,24 @@ function editForm(e) {
 
 
 function App() {
+  const [education, setEducation] = useState([])
+  const [experiences, setExperiences] = useState([])
+  const [genInfo, setGenInfo] = useState([        
+    {text: 'Name', type: 'text', id: 'name', val:''},
+    {text: 'Email', type: 'text', id: 'email', val:''},
+    {text: 'Phone Number', type: 'text', id: 'phone', val:''},
+    {text: 'Address', type: 'text', id: 'address', val:''},
+    {text: 'About Me', type: 'text area', id: 'about-me', val:''}
+  ])
+
+
   return (
     <>
       <form action="get" method="get" className='cv-data-form'>
         <h1>CV Generator</h1>
-        <GeneralInformation />
-        <Experiences />
-        <EducationAchievements />
+        <GeneralInformation genInfo={genInfo} setGenInfo={setGenInfo} />
+        <Experiences experiences={experiences} setExperiences={setExperiences} />
+        <EducationAchievements education={education} setEducation={setEducation} />
         <button className='cv-submit' onClick={submitForm}>Submit</button>
       </form>
       <div className="cv-container">

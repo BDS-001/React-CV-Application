@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { v4 as uuid } from 'uuid';
 import { HandleInputChange, HandleFadeOut } from './Handlers';
 import '../styles/Experience.css'
@@ -94,9 +93,7 @@ function GenerateExperiences({experiences, handleRemoveExperience, setState}) {
     )
 }
 
-export default function Experiences() {
-    const [experiences, setExperiences] = useState([])
-
+export default function Experiences({experiences, setExperiences}) {
     const handleAddExperience = () => {
         setExperiences([
           ...experiences,

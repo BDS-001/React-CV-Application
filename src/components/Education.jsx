@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import { HandleInputChange, HandleFadeOut } from './Handlers';
 
@@ -77,9 +76,7 @@ function GenerateEducation({ education, handleRemoveEducation, setState}) {
 }
 
 
-export default function EducationAchievements() {
-    const [education, setEducation] = useState([])
-
+export default function EducationAchievements({education, setEducation}) {
     const handleAddEducation = () => {
         setEducation([
             ...education,
