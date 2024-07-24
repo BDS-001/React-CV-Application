@@ -1,6 +1,13 @@
 .cv {
     background-color: white;
+    text-align: left;
+    padding: 10px;
     min-height: 11in;
     width: 8.5in;
     color: black;
 }
+
+p {
+    margin: 0px;
+}
+

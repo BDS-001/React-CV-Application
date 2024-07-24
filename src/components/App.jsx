@@ -41,7 +41,7 @@ function App() {
       </form>
       <div className="cv-container">
             <header className="cv-header"><h1>Generated CV</h1> <button className='cv-edit' onClick={editForm}>Edit</button></header>
-            <CV />
+            <CV genInfo={genInfo} experiences={experiences} education={education} />
         </div>
     </>
   )
