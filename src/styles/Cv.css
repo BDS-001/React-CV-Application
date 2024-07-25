@@ -21,8 +21,14 @@ p {
     align-self: end;
 }
 
+.cv-gen-info  {
+    margin: 0;
+    align-self: end;
+}
+
 .contact {
     justify-self: end;
+    text-align: right;
 }
 
 .about-me {
