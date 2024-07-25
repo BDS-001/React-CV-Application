@@ -1,5 +1,6 @@
 import '../styles/App.css'
 import { useState } from 'react';
+import { v4 as uuid } from 'uuid';
 import GeneralInformation from './GeneralInformation'
 import Experiences from './Experience'
 import EducationAchievements from './Education'
@@ -21,13 +22,14 @@ function editForm(e) {
 function App() {
   const [education, setEducation] = useState([])
   const [experiences, setExperiences] = useState([])
-  const [genInfo, setGenInfo] = useState([        
-    {text: 'Name', type: 'text', id: 'name', val:''},
-    {text: 'Email', type: 'text', id: 'email', val:''},
-    {text: 'Phone Number', type: 'text', id: 'phone', val:''},
-    {text: 'Address', type: 'text', id: 'address', val:''},
-    {text: 'About Me', type: 'text area', id: 'about-me', val:''}
-  ])
+  const [genInfo, setGenInfo] = useState([{
+    id: uuid(),
+    name: '',
+    email: '',
+    phone: '',
+    address: '',
+    about: ''
+}])
 
 
   return (

@@ -1,33 +1,76 @@
 import "../styles/GeneralInformation.css"
+import { HandleInputChange } from './Handlers';
 
-function Items({ info, handleInput }) {
+function Items({ genInfo, setGenInfo }) {
     return (
         <>
-            {info.map((entry) => (
+            {genInfo.map((entry) => (
                 <div key={entry.id} className="form-item">
-                    <label htmlFor={entry.id}>{entry.text}:</label>
+                    <label htmlFor={`name-${entry.id}`}>Name:</label>
                     <br />
-                    {entry.type !== 'text area' ? <input type={entry.type} id={entry.id} name={entry.id} value={entry.val} onChange={(e) => {handleInput(entry.id, e.target.value)}}/> : <textarea id={entry.id} name={entry.id} value={entry.val} onChange={(e) => {handleInput(entry.id, e.target.value)}}/>}
+                    <input
+                        type="text"
+                        id={`name-${entry.id}`}
+                        name="name"
+                        value={entry.name}
+                        onChange={(e) => HandleInputChange(entry.id, 'name', e.target.value, setGenInfo)}
+                    />
+                    <br />
+
+                    <label htmlFor={`email-${entry.id}`}>Email:</label>
+                    <br />
+                    <input
+                        type="text"
+                        id={`email-${entry.id}`}
+                        name="email"
+                        value={entry.email}
+                        onChange={(e) => HandleInputChange(entry.id, 'email', e.target.value, setGenInfo)}
+                    />
+                    <br />
+
+                    <label htmlFor={`phone-${entry.id}`}>Phone Number:</label>
+                    <br />
+                    <input
+                        type="text"
+                        id={`phone-${entry.id}`}
+                        name="phone"
+                        value={entry.phone}
+                        onChange={(e) => HandleInputChange(entry.id, 'phone', e.target.value, setGenInfo)}
+                    />
+                    <br />
+
+                    <label htmlFor={`address-${entry.id}`}>Address:</label>
+                    <br />
+                    <input
+                        type="text"
+                        id={`address-${entry.id}`}
+                        name="address"
+                        value={entry.address}
+                        onChange={(e) => HandleInputChange(entry.id, 'address', e.target.value, setGenInfo)}
+                    />
+                    <br />
+
+                    <label htmlFor={`about-${entry.id}`}>About Me:</label>
+                    <br />
+                    <textarea
+                        id={`about-${entry.id}`}
+                        name="about"
+                        value={entry.about}
+                        onChange={(e) => HandleInputChange(entry.id, 'about', e.target.value, setGenInfo)}
+                    />
                 </div>
             ))}
         </>
+
     )
 }
 
 export default function GeneralInformation({genInfo, setGenInfo}) {
-    const handleInput = (id, val) => {
-        setGenInfo((prevInfo) => 
-            prevInfo.map((entry) => 
-                entry.id === id ? {...entry, val: val} : entry
-            )
-        )
-    }
-
     return (
         <fieldset className="general-info">
             <legend>General Information</legend>
             <div className="general-info-container">
-                <Items info={genInfo} handleInput={handleInput} />
+                <Items genInfo={genInfo} setGenInfo={setGenInfo} />
             </div>
         </fieldset>
     )
