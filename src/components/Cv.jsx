@@ -55,13 +55,28 @@ function ExperienceSection({experiences}) {
   )
 }
 
-export default function CV({genInfo, experiences, education}) {
+function SkillsSection({skills}) {
+  if (skills.length === 0) return
+  return (
+    <>
+    <h1>Skills</h1>
+    <ul className='skills-cv-entry'>
+    {skills.map((skill) => 
+      <li key={skill.id}>{skill.skill}</li>
+    )}
+    </ul> 
+    </>
+  )
+}
+
+export default function CV({genInfo, experiences, education, skills}) {
     return (
       <>
         <div className="cv">
           <GeneralInfoSection genInfo={genInfo} />
           <EducationSection education={education} />
           <ExperienceSection experiences={experiences} />
+          <SkillsSection  skills={skills} />
         </div>
       </>
     )
