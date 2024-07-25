@@ -5,7 +5,7 @@
   text-align: center;
 }
 
-.education-entry, .experience-entry, .general-info-container {
+.education-entry, .experience-entry, .skill-entry, .general-info-container {
   padding: 10px;
   border-radius: 8px;
   margin: 10px;
@@ -14,7 +14,7 @@
 
 }
 
-.education-entry, .experience-entry {
+.education-entry, .experience-entry, .skill-entry {
   animation: fadeIn 0.5s forwards;
 }
 

@@ -4,6 +4,7 @@ import { v4 as uuid } from 'uuid';
 import GeneralInformation from './GeneralInformation'
 import Experiences from './Experience'
 import EducationAchievements from './Education'
+import Skills from './Skills';
 import CV from './Cv'
 
 function submitForm(e) {
@@ -22,6 +23,7 @@ function editForm(e) {
 function App() {
   const [education, setEducation] = useState([])
   const [experiences, setExperiences] = useState([])
+  const [skills, setSkills] = useState([])
   const [genInfo, setGenInfo] = useState([{
     id: uuid(),
     name: '',
@@ -39,6 +41,7 @@ function App() {
         <GeneralInformation genInfo={genInfo} setGenInfo={setGenInfo} />
         <Experiences experiences={experiences} setExperiences={setExperiences} />
         <EducationAchievements education={education} setEducation={setEducation} />
+        <Skills skills={skills} setSkills={setSkills} />
         <button className='cv-submit' onClick={submitForm}>Submit</button>
       </form>
       <div className="cv-container">
