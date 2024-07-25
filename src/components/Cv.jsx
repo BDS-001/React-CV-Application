@@ -1,14 +1,30 @@
 import '../styles/Cv.css'
 
 function GeneralInfoSection({genInfo}) {
+  const info = genInfo[0]
   return (
-    genInfo.map((info) => <p key={info.id}>{info.val}</p>)
+    <>
+      <div className="cv-gen-info">
+        <h1>{info.name}</h1>
+        <div className="contact">
+          {info.email}
+          <br />
+          {info.phone}
+          <br />
+          {info.address}
+        </div>
+        <div className="about-me"> {info.about} </div>
+      </div>
+    </>
   )
 }
 
 function EducationSection({education}) {
+  if (education.length === 0) return
   return (
-    education.map((edu) => 
+    <>
+    <h1>Education</h1>
+    {education.map((edu) => 
     <div key={edu.id} className='education-cv-entry'>
       <p>{edu.cert}</p>
       <p>{edu.institution}</p>
@@ -16,13 +32,17 @@ function EducationSection({education}) {
       <p>{edu.startDate}</p>
       <p>{edu.endDate}</p>
       <p>{edu.field}</p>
-    </div> )
+    </div> )}
+    </>
   )
 }
 
 function ExperienceSection({experiences}) {
+  if (experiences.length === 0) return
   return (
-    experiences.map((experience) => 
+    <>
+    <h1>Experience</h1>
+    {experiences.map((experience) => 
     <div key={experience.id} className='experiences-cv-entry'>
       <p>{experience.jobTitle}</p>
       <p>{experience.company}</p>
@@ -30,7 +50,8 @@ function ExperienceSection({experiences}) {
       <p>{experience.endDate}</p>
       <p>{experience.location}</p>
       <p>{experience.jobDetails}</p>
-    </div> )
+    </div> )}
+    </>
   )
 }
 

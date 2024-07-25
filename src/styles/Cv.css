@@ -11,3 +11,20 @@ p {
     margin: 0px;
 }
 
+.cv-gen-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.cv-gen-info h1 {
+    margin: 0;
+    align-self: end;
+}
+
+.contact {
+    justify-self: end;
+}
+
+.about-me {
+    grid-column: span 2;
+}
