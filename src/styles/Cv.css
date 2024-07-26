@@ -1,36 +1,41 @@
 .cv {
     background-color: white;
-    text-align: left;
-    padding: 10px;
     min-height: 11in;
     width: 8.5in;
     color: black;
+    display: grid;
+    grid-template-columns: 40% 1fr;
 }
 
 p {
     margin: 0px;
 }
 
-.cv-gen-info {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.side-content {
+    grid-column: 1;
+    background-color: lightblue;
+    text-align: left;
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.cv-gen-info h1 {
+.main-content {
+    grid-column: 2;
+    padding: 0px 30px;
+    background-color: whitesmoke;
+}
+
+.divider {
+    height: 3px;
+    width: 100%;
+    background-color: black;
+    margin: 10px 0;
+}
+
+.skills-cv-entry {
+    padding-left: 15px;
     margin: 0;
-    align-self: end;
-}
-
-.cv-gen-info  {
-    margin: 0;
-    align-self: end;
-}
-
-.contact {
-    justify-self: end;
-    text-align: right;
-}
-
-.about-me {
-    grid-column: span 2;
 }

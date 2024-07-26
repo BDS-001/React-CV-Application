@@ -42,7 +42,7 @@ function App() {
         <Experiences experiences={experiences} setExperiences={setExperiences} />
         <EducationAchievements education={education} setEducation={setEducation} />
         <Skills skills={skills} setSkills={setSkills} />
-        <button className='cv-submit' onClick={submitForm}>Submit</button>
+        <button className='cv-submit' onClick={submitForm}>Generate</button>
       </form>
       <div className="cv-container">
             <header className="cv-header"><h1>Generated CV</h1> <button className='cv-edit' onClick={editForm}>Edit</button></header>
