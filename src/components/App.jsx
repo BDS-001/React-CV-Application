@@ -39,8 +39,8 @@ function App() {
       <form action="get" method="get" className='cv-data-form'>
         <h1>CV Generator</h1>
         <GeneralInformation genInfo={genInfo} setGenInfo={setGenInfo} />
-        <Experiences experiences={experiences} setExperiences={setExperiences} />
         <EducationAchievements education={education} setEducation={setEducation} />
+        <Experiences experiences={experiences} setExperiences={setExperiences} />
         <Skills skills={skills} setSkills={setSkills} />
         <button className='cv-submit' onClick={submitForm}>Generate</button>
       </form>

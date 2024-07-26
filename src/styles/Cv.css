@@ -22,7 +22,12 @@ p {
     justify-content: center;
 }
 
+.cv-name {
+    text-align: center;
+}
+
 .main-content {
+    text-align: left;
     grid-column: 2;
     padding: 0px 30px;
     background-color: whitesmoke;
@@ -38,4 +43,24 @@ p {
 .skills-cv-entry {
     padding-left: 15px;
     margin: 0;
+}
+
+.cv-entry-description {
+    margin: 0px;
+    font-family: inherit;
+    white-space: pre-wrap;
+}
+
+.cv-entry-title {
+    margin: 0px;
+}
+
+.cv-entry-details {
+    color: slategrey;
+    font-style: italic;
+}
+
+.education-list {
+    display: grid;
+    gap: 20px;
 }

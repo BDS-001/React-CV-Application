@@ -67,6 +67,19 @@ function GenerateEducation({ education, handleRemoveEducation, setState}) {
                             onChange={(e) => HandleInputChange(entry.id, 'endDate', e.target.value, setState)}
                         />
                     </div>
+
+                    <div className="form-item">
+                            <label htmlFor={`notes-${entry.id}`}>Achievements/Relevant Course Work:</label><br />
+                            <textarea
+                                id={`notes-${entry.id}`}
+                                name={`notes-${entry.id}`}
+                                value={entry.jobDetails}
+                                onChange={(e) =>
+                                HandleInputChange(entry.id, 'notes', e.target.value, setState)
+                                }
+                            ></textarea>
+                        </div>
+
                     </div>
                 </div>
             ))}
@@ -88,6 +101,7 @@ export default function EducationAchievements({education, setEducation}) {
                 startDate: '',
                 endDate: '',
                 field: '',
+                notes: '',
             }
         ])
     }

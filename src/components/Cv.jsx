@@ -1,5 +1,12 @@
 import '../styles/Cv.css'
 
+
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return date.toLocaleDateString('en-US', options);
+}
+
 function ContactSection({genInfo}) {
   const info = genInfo[0]
   return (
@@ -35,8 +42,10 @@ function AboutMeSection({genInfo}) {
 function CvHeader({genInfo}) {
   return (
     <>
+    <header className='cv-name'>
       <h1>{genInfo[0].name}</h1>
       <div className="divider"></div>
+      </header>
     </>
   )
 }
@@ -45,16 +54,15 @@ function EducationSection({education}) {
   if (education.length === 0) return
   return (
     <>
-    <h1>Education</h1>
-    {education.map((edu) => 
-    <div key={edu.id} className='education-cv-entry'>
-      <p>{edu.cert}</p>
-      <p>{edu.institution}</p>
-      <p>{edu.location}</p>
-      <p>{edu.startDate}</p>
-      <p>{edu.endDate}</p>
-      <p>{edu.field}</p>
-    </div> )}
+    <h2>Education</h2>
+    <div className="education-list">
+      {education.map((edu) => 
+      <div key={edu.id} className='cv-education-entry'>
+        <h4 className='cv-entry-title'>{edu.cert}</h4>
+        <p className='cv-entry-details'>{edu.institution} | {edu.location} | {formatDate(edu.startDate)} - {formatDate(edu.endDate)}</p>
+        <pre className='cv-entry-description'>{edu.notes}</pre>
+      </div> )}
+    </div>
     </>
   )
 }
@@ -63,16 +71,15 @@ function ExperienceSection({experiences}) {
   if (experiences.length === 0) return
   return (
     <>
-    <h1>Experience</h1>
-    {experiences.map((experience) => 
-    <div key={experience.id} className='experiences-cv-entry'>
-      <p>{experience.jobTitle}</p>
-      <p>{experience.company}</p>
-      <p>{experience.startDate}</p>
-      <p>{experience.endDate}</p>
-      <p>{experience.location}</p>
-      <p>{experience.jobDetails}</p>
-    </div> )}
+    <h2>Experience</h2>
+    <div className="experience-list">
+      {experiences.map((experience) => 
+      <div key={experience.id} className='cv-experiences-entry'>
+        <h4 className='cv-entry-title'>{experience.jobTitle}</h4>
+        <p className='cv-entry-details'>{experience.company} | {experience.location} | {formatDate(experience.startDate)} - {formatDate(experience.endDate)}</p>
+        <pre className='cv-entry-description'>{experience.jobDetails}</pre>
+      </div> )}
+    </div>
     </>
   )
 }
@@ -104,6 +111,9 @@ export default function CV({genInfo, experiences, education, skills}) {
           </div>
           <div className="main-content">
             <CvHeader genInfo={genInfo} />
+            <EducationSection education={education} />
+            {education.length > 0 && experiences.length > 0 ? <div className="divider"></div> : null}
+            <ExperienceSection experiences={experiences} />
           </div>
         </div>
       </>
